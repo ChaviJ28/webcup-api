@@ -2,6 +2,8 @@ let express = require("express"),
     router = express.Router(),
     middleware = require("../middleware/auth");
 
+let data = [];
+
 router.post("/new", middleware.authenticateToken, async (req, res) => {
     try {
         var db = require("../models/competition")

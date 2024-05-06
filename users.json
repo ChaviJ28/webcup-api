@@ -1,0 +1,47 @@
+[
+  {
+    "id": 0,
+    "name": "C",
+    "email": "asd@gmail.com",
+    "country": "C",
+    "password": "$2b$08$cpBlnpTD/iSp5U/.2Ovg.OplwTZ0jv5WWm20XLQPm7NuXEPNTlIya",
+    "phone_number": "C",
+    "verfied": false
+  },
+  {
+    "id": 1,
+    "name": "C",
+    "email": "asd@gmail.com",
+    "country": "C",
+    "password": "$2b$08$qV82lo.JB/srMKdfMGq5yu4NnwVnR7IJK5KOqHV4RPV7rZUlhY47i",
+    "phone_number": "C",
+    "verfied": false
+  },
+  {
+    "id": 2,
+    "name": "C",
+    "email": "qwe@gmail.com",
+    "country": "C",
+    "password": "$2b$08$2NVRaBzOYy5nmgg4YkIMpu2kU8Ymlf11hTk/IQk92kAvaxlPLn2su",
+    "phone_number": "C",
+    "verfied": false
+  },
+  {
+    "id": 3,
+    "name": "C",
+    "email": "qwe@gmail.com",
+    "country": "C",
+    "password": "$2b$08$VDpCcQZU8KLCNED9JKyErOK5N96sJMEiGxBYn/F7n/byFIsDP3gHW",
+    "phone_number": "C",
+    "verfied": false
+  },
+  {
+    "id": 4,
+    "name": "C",
+    "email": "qwe@gmail.com",
+    "country": "C",
+    "password": "$2b$08$fS6cK8JBiw3uPt/RQHUm8.n7sEUMNn1BknKHHopTIBL11CdJieWNq",
+    "phone_number": "C",
+    "verfied": false
+  }
+]

@@ -1,29 +1,35 @@
 let express = require("express"),
     router = express.Router(),
     middleware = require("../middleware/auth");
+const bcrypt = require('bcrypt');
+const fs = require('fs');
+
+let data = [];
 
 router.post("/new", middleware.authenticateToken, async (req, res) => {
     try {
-        // return res.json({ email: req.body.email })
-        var db = require("../models/user")
-        // return db.find({
-        //     email: req.body.email
-        // });
+        id = data.length
 
-        newUser = new db({
+        data.push({
+            id: id,
             name: req.body.name,
             email: req.body.email,
             country: req.body.country,
+            password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(8), null),
             phone_number: req.body.phone_number,
             verfied: false
         });
 
-        newUser.password = newUser.generateHash(req.body.password);
-        newUser.save();
-
         return res.status(200).json({
             success: true,
-            data: newUser
+            data: {
+                id: id,
+                name: req.body.name,
+                email: req.body.email,
+                country: req.body.country,
+                phone_number: req.body.phone_number,
+                verfied: false
+            }
         })
 
     } catch (err) {
@@ -96,39 +102,12 @@ router.get("/bets", middleware.authenticateToken, async (req, res) => {
     }
 });
 
-router.get("/:param", middleware.authenticateToken, async (req, res) => {
+router.get("/", middleware.authenticateToken, async (req, res) => {
     try {
-        var db = require("../models/user");
-        var param = req.params.param;
 
-        if (!param) {
-            return res.status(500).json({
-                success: false,
-                message: "Invalid Parameter!"
-            });
-        }
-
-        var user = await db.findOne({
-            id: param
-        });
-
-        if (!user) {
-            user = await db.findOne({
-                email: param
-            });
-
-            if (!user) {
-                return res.status(500).json({
-                    success: false,
-                    message: "User not found!"
-                });
-            }
-        }
-
-        delete user.password
         return res.status(200).json({
             success: true,
-            data: user
+            data: data
         })
 
     } catch (err) {
