@@ -48,9 +48,8 @@ app.post('/api/participant/bets', (req, res) => {
     // email, participant, amt, payOut
 
     const sgMail = require('@sendgrid/mail');
-    sgMail.setApiKey('SG.SK6690fc634412bbc0962a8b6977e4ce30');
+    sgMail.setApiKey(process.env.SENDGRID_API);
 
-    // client.setApiKey("SG.SK6690fc634412bbc0962a8b6977e4ce30");
 
     const data = {
         text: `Hello, ${req.body.email}, you have successfully placed a bet of ${req.body.paymentType} ${req.body.amount} on participant ${req.body.participant}, with an expected Payout of ${req.body.payOut}`,
